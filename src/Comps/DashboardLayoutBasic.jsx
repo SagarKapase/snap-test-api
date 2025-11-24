@@ -25,6 +25,8 @@ import DataObjectIcon from "@mui/icons-material/DataObject";
 import BlogMain from "./Blogs/BlogMain";
 import AboutMain from "./AboutUs/AboutMain";
 import MainArea from "./Playground/MainArea";
+import AttachmentIcon from "@mui/icons-material/Attachment";
+import DataArrayIcon from "@mui/icons-material/DataArray";
 
 const demoTheme = createTheme({
   cssVariables: {
@@ -100,8 +102,8 @@ function DashboardLayoutBasic(props) {
         navigation={[
           {
             segment: "movies",
-            title: "Users",
-            icon: <PeopleAltIcon />,
+            title: "JSON",
+            icon: <DataArrayIcon />,
             children: [
               {
                 segment: "get-all-users",
@@ -232,6 +234,11 @@ function DashboardLayoutBasic(props) {
                 icon: <InfoIcon />,
               },
             ],
+          },
+          {
+            segment: "form",
+            title: "File Attachment",
+            icon: <AttachmentIcon />,
           },
           {
             segment: "blogs",
