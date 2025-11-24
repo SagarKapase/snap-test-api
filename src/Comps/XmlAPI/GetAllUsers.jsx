@@ -306,7 +306,7 @@ print(response.text)
                   elevation={1}
                   sx={{
                     width: "100%",
-                    height: "200px",
+                    height: "100px",
                     p: 2,
                     overflowY: "auto", // scroll only vertically
                     overflowX: "auto", // scroll horizontally if needed

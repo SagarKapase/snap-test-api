@@ -44,6 +44,62 @@ export default function AddUser_XML() {
     <City>Tokyo</City>
 </UserRequest>
 `;
+
+  const jsCode = `
+fetch("https://snap-test-api-v1.onrender.com/api/xml/UserXML/create", {
+  method: "POST",
+  headers: { "Content-Type": "application/xml" },
+  body: \`${requestXmlData}\`
+})
+  .then(res => res.text())
+  .then(console.log);
+`;
+
+  const axiosCode = `
+const axios = require("axios");
+
+axios.post(
+  "https://snap-test-api-v1.onrender.com/api/xml/UserXML/create",
+  \`${requestXmlData}\`,
+  { headers: { "Content-Type": "application/xml" } }
+)
+  .then(res => console.log(res.data));
+`;
+
+  const phpCode = `
+<?php
+$xml = '${requestXmlData}';
+
+echo file_get_contents(
+  "https://snap-test-api-v1.onrender.com/api/xml/UserXML/create",
+  false,
+  stream_context_create([
+    "http" => [
+      "method" => "POST",
+      "header" => "Content-Type: application/xml",
+      "content" => $xml
+    ]
+  ])
+);
+?>
+`;
+
+  const curlCode = `
+curl -X POST "https://snap-test-api-v1.onrender.com/api/xml/UserXML/create" \\
+  -H "Content-Type: application/xml" \\
+  -d '${requestXmlData}'
+`;
+
+  const pythonCode = `
+import requests
+
+requests.post(
+  "https://snap-test-api-v1.onrender.com/api/xml/UserXML/create",
+  data=\"\"\"${requestXmlData}\"\"\",
+  headers={ "Content-Type": "application/xml" }
+).text
+`;
+
   return (
     <Stack direction="column" spacing={1} sx={{ width: "100%" }}>
       <Typography variant="h5" sx={{ fontWeight: 400 }}>
@@ -136,9 +192,50 @@ export default function AddUser_XML() {
               <Typography component="span">JavaScript (Browser)</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
+              <Box position="relative" width="100%">
+                <Paper
+                  elevation={1}
+                  sx={{
+                    width: "100%",
+                    height: "300px",
+                    p: 2,
+                    overflowY: "auto", // scroll only vertically
+                    overflowX: "auto", // scroll horizontally if needed
+                    backgroundColor: "#1e1e1e",
+                    color: "#fff",
+                    fontFamily: "monospace",
+                    fontSize: "14px",
+                    borderRadius: 2,
+                    whiteSpace: "pre-wrap",
+                  }}
+                >
+                  {jsCode}
+                </Paper>
+                {/* Copy icon at top-right */}
+                <Tooltip title={copied ? "" : "Copy"}>
+                  <IconButton
+                    onClick={() => handleCopy(jsCode)}
+                    size="small"
+                    sx={{
+                      position: "absolute",
+                      top: 4,
+                      right: 4,
+                      color: "#fff",
+                      backgroundColor: "rgba(0,0,0,0.3)",
+                      "&:hover": { backgroundColor: "rgba(0,0,0,0.5)" },
+                      p: 1.2, // <-- padding added here
+                      mr: 2,
+                      borderRadius: "8px", // optional: nicer rounded shape
+                    }}
+                  >
+                    {copied ? (
+                      <Typography fontSize="12px">Copied!</Typography>
+                    ) : (
+                      <ContentCopyIcon fontSize="small" />
+                    )}
+                  </IconButton>
+                </Tooltip>
+              </Box>
             </AccordionDetails>
           </Accordion>
           <Accordion>
@@ -150,9 +247,50 @@ export default function AddUser_XML() {
               <Typography component="span">Node.js (Axios)</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
+              <Box position="relative" width="100%">
+                <Paper
+                  elevation={1}
+                  sx={{
+                    width: "100%",
+                    height: "300px",
+                    p: 2,
+                    overflowY: "auto", // scroll only vertically
+                    overflowX: "auto", // scroll horizontally if needed
+                    backgroundColor: "#1e1e1e",
+                    color: "#fff",
+                    fontFamily: "monospace",
+                    fontSize: "14px",
+                    borderRadius: 2,
+                    whiteSpace: "pre-wrap",
+                  }}
+                >
+                  {axiosCode}
+                </Paper>
+                {/* Copy icon at top-right */}
+                <Tooltip title={copied ? "" : "Copy"}>
+                  <IconButton
+                    onClick={() => handleCopy(axiosCode)}
+                    size="small"
+                    sx={{
+                      position: "absolute",
+                      top: 4,
+                      right: 4,
+                      color: "#fff",
+                      backgroundColor: "rgba(0,0,0,0.3)",
+                      "&:hover": { backgroundColor: "rgba(0,0,0,0.5)" },
+                      p: 1.2, // <-- padding added here
+                      mr: 2,
+                      borderRadius: "8px", // optional: nicer rounded shape
+                    }}
+                  >
+                    {copied ? (
+                      <Typography fontSize="12px">Copied!</Typography>
+                    ) : (
+                      <ContentCopyIcon fontSize="small" />
+                    )}
+                  </IconButton>
+                </Tooltip>
+              </Box>
             </AccordionDetails>
           </Accordion>
           <Accordion>
@@ -164,14 +302,51 @@ export default function AddUser_XML() {
               <Typography component="span">PHP</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
+              <Box position="relative" width="100%">
+                <Paper
+                  elevation={1}
+                  sx={{
+                    width: "100%",
+                    height: "300px",
+                    p: 2,
+                    overflowY: "auto", // scroll only vertically
+                    overflowX: "auto", // scroll horizontally if needed
+                    backgroundColor: "#1e1e1e",
+                    color: "#fff",
+                    fontFamily: "monospace",
+                    fontSize: "14px",
+                    borderRadius: 2,
+                    whiteSpace: "pre-wrap",
+                  }}
+                >
+                  {phpCode}
+                </Paper>
+                {/* Copy icon at top-right */}
+                <Tooltip title={copied ? "" : "Copy"}>
+                  <IconButton
+                    onClick={() => handleCopy(phpCode)}
+                    size="small"
+                    sx={{
+                      position: "absolute",
+                      top: 4,
+                      right: 4,
+                      color: "#fff",
+                      backgroundColor: "rgba(0,0,0,0.3)",
+                      "&:hover": { backgroundColor: "rgba(0,0,0,0.5)" },
+                      p: 1.2, // <-- padding added here
+                      mr: 2,
+                      borderRadius: "8px", // optional: nicer rounded shape
+                    }}
+                  >
+                    {copied ? (
+                      <Typography fontSize="12px">Copied!</Typography>
+                    ) : (
+                      <ContentCopyIcon fontSize="small" />
+                    )}
+                  </IconButton>
+                </Tooltip>
+              </Box>
             </AccordionDetails>
-            <AccordionActions>
-              <Button>Cancel</Button>
-              <Button>Agree</Button>
-            </AccordionActions>
           </Accordion>
 
           <Accordion>
@@ -183,14 +358,50 @@ export default function AddUser_XML() {
               <Typography component="span">cURL</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
+              <Box position="relative" width="100%">
+                <Paper
+                  elevation={1}
+                  sx={{
+                    width: "100%",
+                    height: "250px",
+                    p: 2,
+                    overflowY: "auto", // scroll only vertically
+                    overflowX: "auto", // scroll horizontally if needed
+                    backgroundColor: "#1e1e1e",
+                    color: "#fff",
+                    fontFamily: "monospace",
+                    fontSize: "14px",
+                    borderRadius: 2,
+                    whiteSpace: "pre-wrap",
+                  }}
+                >
+                  {curlCode}
+                </Paper>
+                {/* Copy icon at top-right */}
+                <Tooltip title={copied ? "" : "Copy"}>
+                  <IconButton
+                    onClick={() => handleCopy(curlCode)}
+                    size="small"
+                    sx={{
+                      position: "absolute",
+                      top: 4,
+                      right: 4,
+                      color: "#fff",
+                      backgroundColor: "rgba(0,0,0,0.3)",
+                      "&:hover": { backgroundColor: "rgba(0,0,0,0.5)" },
+                      p: 1.2, // <-- padding added here
+                      borderRadius: "8px", // optional: nicer rounded shape
+                    }}
+                  >
+                    {copied ? (
+                      <Typography fontSize="12px">Copied!</Typography>
+                    ) : (
+                      <ContentCopyIcon fontSize="small" />
+                    )}
+                  </IconButton>
+                </Tooltip>
+              </Box>
             </AccordionDetails>
-            <AccordionActions>
-              <Button>Cancel</Button>
-              <Button>Agree</Button>
-            </AccordionActions>
           </Accordion>
 
           <Accordion>
@@ -202,14 +413,51 @@ export default function AddUser_XML() {
               <Typography component="span">Python</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
+              <Box position="relative" width="100%">
+                <Paper
+                  elevation={1}
+                  sx={{
+                    width: "100%",
+                    height: "300px",
+                    p: 2,
+                    overflowY: "auto", // scroll only vertically
+                    overflowX: "auto", // scroll horizontally if needed
+                    backgroundColor: "#1e1e1e",
+                    color: "#fff",
+                    fontFamily: "monospace",
+                    fontSize: "14px",
+                    borderRadius: 2,
+                    whiteSpace: "pre-wrap",
+                  }}
+                >
+                  {pythonCode}
+                </Paper>
+                {/* Copy icon at top-right */}
+                <Tooltip title={copied ? "" : "Copy"}>
+                  <IconButton
+                    onClick={() => handleCopy(pythonCode)}
+                    size="small"
+                    sx={{
+                      position: "absolute",
+                      top: 4,
+                      right: 4,
+                      color: "#fff",
+                      backgroundColor: "rgba(0,0,0,0.3)",
+                      "&:hover": { backgroundColor: "rgba(0,0,0,0.5)" },
+                      p: 1.2, // <-- padding added here
+                      mr: 2,
+                      borderRadius: "8px", // optional: nicer rounded shape
+                    }}
+                  >
+                    {copied ? (
+                      <Typography fontSize="12px">Copied!</Typography>
+                    ) : (
+                      <ContentCopyIcon fontSize="small" />
+                    )}
+                  </IconButton>
+                </Tooltip>
+              </Box>
             </AccordionDetails>
-            <AccordionActions>
-              <Button>Cancel</Button>
-              <Button>Agree</Button>
-            </AccordionActions>
           </Accordion>
         </div>
       </Stack>
@@ -217,33 +465,49 @@ export default function AddUser_XML() {
         <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
           Response Samples
         </Typography>
-        <Paper
-          elevation={1}
-          sx={{
-            width: "100%",
-            height: "200px",
-            p: 2,
-            overflowY: "auto", // scroll only vertically
-            overflowX: "auto", // scroll horizontally if needed
-            backgroundColor: "#1e1e1e",
-            color: "#fff",
-            fontFamily: "monospace",
-            fontSize: "14px",
-            borderRadius: 2,
-            whiteSpace: "pre-wrap",
-          }}
-        >
-          {/* Copy JSON Button */}
-          <IconButton
-            size="small"
-            sx={{ position: "absolute", top: 10, right: 10, color: "#fff" }}
-            onClick={() => navigator.clipboard.writeText(jsonData)}
+        <Box position="relative" width="100%">
+          <Paper
+            elevation={1}
+            sx={{
+              width: "100%",
+              height: "200px",
+              p: 2,
+              overflowY: "auto", // scroll only vertically
+              overflowX: "auto", // scroll horizontally if needed
+              backgroundColor: "#1e1e1e",
+              color: "#fff",
+              fontFamily: "monospace",
+              fontSize: "14px",
+              borderRadius: 2,
+              whiteSpace: "pre-wrap",
+            }}
           >
-            <ContentCopyIcon fontSize="small" />
-          </IconButton>
-
-          {jsonData}
-        </Paper>
+            {jsonData}
+          </Paper>
+          {/* Copy icon at top-right */}
+          <Tooltip title={copied ? "" : "Copy"}>
+            <IconButton
+              onClick={() => handleCopy(jsonData)}
+              size="small"
+              sx={{
+                position: "absolute",
+                top: 4,
+                right: 4,
+                color: "#fff",
+                backgroundColor: "rgba(0,0,0,0.3)",
+                "&:hover": { backgroundColor: "rgba(0,0,0,0.5)" },
+                p: 1.2, // <-- padding added here
+                borderRadius: "8px", // optional: nicer rounded shape
+              }}
+            >
+              {copied ? (
+                <Typography fontSize="12px">Copied!</Typography>
+              ) : (
+                <ContentCopyIcon fontSize="small" />
+              )}
+            </IconButton>
+          </Tooltip>
+        </Box>
       </Stack>
     </Stack>
   );
