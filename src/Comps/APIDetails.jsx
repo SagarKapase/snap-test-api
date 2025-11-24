@@ -27,7 +27,7 @@ export default function APIDetails() {
         </Typography>
         <Typography
           variant="body2"
-          sx={{ color: "text.secondary", mt: 1, fontWeight: "bold" }}
+          sx={{ color: "red", mt: 1, fontWeight: "bold" }}
         >
           Note : “We’re still building a few features. The site is under
           development — sorry for the inconvenience and thanks for sticking with
