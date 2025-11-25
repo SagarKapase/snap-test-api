@@ -4,10 +4,9 @@ import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
-import GenerateToken from "./GenerateToken";
-import AuthorizeUser from "./AuthorizeUser";
+import UploadFileAPI from "./UploadFileAPI";
 
-export default function AuthAPIDetails() {
+export default function FormDataDetails() {
   return (
     <Card variant="outlined" sx={{ overflow: "auto" }}>
       <Box sx={{ p: 2 }}>
@@ -22,13 +21,19 @@ export default function AuthAPIDetails() {
         <Typography variant="body2" sx={{ color: "text.secondary" }}>
           Good for API or automation platforms.
         </Typography>
+        <Typography
+          variant="body2"
+          sx={{ color: "red", mt: 1, fontWeight: "bold" }}
+        >
+          Note : “We’re still building a few features. The site is under
+          development — sorry for the inconvenience and thanks for sticking with
+          us!”
+        </Typography>
       </Box>
       <Divider />
       <Box sx={{ p: 2 }}>
         <Stack direction="column" spacing={1}>
-          <GenerateToken />
-          <Divider sx={{ mt: "40px", mb: "40px" }} />
-          <AuthorizeUser />
+          <UploadFileAPI />
         </Stack>
       </Box>
     </Card>

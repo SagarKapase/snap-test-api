@@ -19,7 +19,7 @@ export default function APIDetails() {
           sx={{ justifyContent: "space-between", alignItems: "center" }}
         >
           <Typography gutterBottom variant="h5" component="div">
-            Snap-Test.co.in ( V1.0.0 )
+            Snap-Test.in ( V1.0.0 )
           </Typography>
         </Stack>
         <Typography variant="body2" sx={{ color: "text.secondary" }}>

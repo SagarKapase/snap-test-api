@@ -27,6 +27,8 @@ import AboutMain from "./AboutUs/AboutMain";
 import MainArea from "./Playground/MainArea";
 import AttachmentIcon from "@mui/icons-material/Attachment";
 import DataArrayIcon from "@mui/icons-material/DataArray";
+import FormDataDetails from "./Form-Data/FormDataDetails";
+import ConstructionIcon from "@mui/icons-material/Construction";
 
 const demoTheme = createTheme({
   cssVariables: {
@@ -94,7 +96,7 @@ function DashboardLayoutBasic(props) {
       {/* preview-start */}
       <AppProvider
         branding={{
-          title: "Snap-Test.co.in", // <-- Change name here
+          title: "Snap-Test.in", // <-- Change name here
         }}
         initialState={{
           navigation: { open: false }, // 👈 Collapse sidebar on first load
@@ -236,9 +238,14 @@ function DashboardLayoutBasic(props) {
             ],
           },
           {
-            segment: "form",
+            segment: "form-data",
             title: "File Attachment",
             icon: <AttachmentIcon />,
+          },
+          {
+            segment: "builder",
+            title: "API Builder",
+            icon: <ConstructionIcon />,
           },
           {
             segment: "blogs",
@@ -276,6 +283,8 @@ function DashboardLayoutBasic(props) {
             <AuthAPIDetails pathname={router.pathname} />
           ) : router.pathname.startsWith("/xml") ? (
             <XmlAPIDetails pathname={router.pathname} />
+          ) : router.pathname.startsWith("/form-data") ? (
+            <FormDataDetails pathname={router.pathname} />
           ) : router.pathname.startsWith("/graphql") ? (
             <GraphQLAPIDetails pathname={router.pathname} />
           ) : router.pathname.startsWith("/playground") ? (

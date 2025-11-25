@@ -67,7 +67,8 @@ export default function RequestArea() {
       </TabPanel>
 
       <TabPanel value={value} index={1} dir={theme.direction}>
-        <RequestHeaders />
+        {/* <RequestHeaders /> */}
+        Item two
       </TabPanel>
 
       <TabPanel value={value} index={2} dir={theme.direction}>
