@@ -5,7 +5,6 @@ export default function RequestBody({
   requestBody,
   setRequestBody,
   responseBody,
-  setResponseBody,
 }) {
   return (
     <Stack sx={{ width: "100%" }} spacing={2} direction={"column"}>
@@ -13,20 +12,44 @@ export default function RequestBody({
         <TextareaAutosize
           aria-label="request body"
           minRows={13}
-          placeholder="Request Body"
-          value={requestBody}
           onChange={(e) => setRequestBody(e.target.value)}
-          style={{ width: "100%", fontSize: "14px", padding: "10px" }}
+          placeholder="Request Body"
+          style={{
+            width: "100%",
+            fontSize: "14px",
+            padding: "10px",
+            backgroundColor: "#121212",
+            color: "#00e676",
+            fontFamily: "monospace",
+            borderRadius: "8px",
+            border: "1px solid #333",
+            maxHeight: "250px", // ← Limit height
+            overflow: "auto", // ← Enables scrolling
+            whiteSpace: "pre-wrap", // ← Keeps formatting
+            lineHeight: "1.4",
+          }}
         />
       </Stack>
       <Stack sx={{ width: "100%" }} spacing={2}>
         <TextareaAutosize
           aria-label="response body"
           minRows={13}
-          placeholder="Response Body"
           value={responseBody}
-          onChange={(e) => setResponseBody(e.target.value)}
-          style={{ width: "100%", fontSize: "14px", padding: "10px" }}
+          placeholder="Response Body"
+          style={{
+            width: "100%",
+            fontSize: "14px",
+            padding: "10px",
+            backgroundColor: "#121212",
+            color: "#00e676",
+            fontFamily: "monospace",
+            borderRadius: "8px",
+            border: "1px solid #333",
+            maxHeight: "250px", // ← Limit height
+            overflowY: "scroll", // ← Enables scrolling
+            whiteSpace: "pre-wrap", // ← Keeps formatting
+            lineHeight: "1.4",
+          }}
         />
       </Stack>
     </Stack>

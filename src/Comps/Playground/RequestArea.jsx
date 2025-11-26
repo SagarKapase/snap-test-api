@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import PropTypes from "prop-types";
 import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
-import RequestHeaders from "./RequestHeaders.jsx";
+import RequestBody from "./RequestBody.jsx";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -40,7 +40,11 @@ function a11yProps(index) {
   };
 }
 
-export default function RequestArea() {
+export default function RequestArea({
+  requestBody,
+  setRequestBody,
+  responseBody,
+}) {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
@@ -67,12 +71,15 @@ export default function RequestArea() {
       </TabPanel>
 
       <TabPanel value={value} index={1} dir={theme.direction}>
-        {/* <RequestHeaders /> */}
         Item two
       </TabPanel>
 
       <TabPanel value={value} index={2} dir={theme.direction}>
-        Item Three
+        <RequestBody
+          requestBody={requestBody}
+          setRequestBody={setRequestBody}
+          responseBody={responseBody}
+        />
       </TabPanel>
     </Box>
   );
