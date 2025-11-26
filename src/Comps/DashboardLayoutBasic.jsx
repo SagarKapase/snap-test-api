@@ -29,6 +29,7 @@ import AttachmentIcon from "@mui/icons-material/Attachment";
 import DataArrayIcon from "@mui/icons-material/DataArray";
 import FormDataDetails from "./Form-Data/FormDataDetails";
 import ConstructionIcon from "@mui/icons-material/Construction";
+import ApiBuilderDetails from "./ApiBuilder/ApiBuilderDetails";
 
 const demoTheme = createTheme({
   cssVariables: {
@@ -283,6 +284,8 @@ function DashboardLayoutBasic(props) {
             <AuthAPIDetails pathname={router.pathname} />
           ) : router.pathname.startsWith("/xml") ? (
             <XmlAPIDetails pathname={router.pathname} />
+          ) : router.pathname.startsWith("/builder") ? (
+            <ApiBuilderDetails pathname={router.pathname} />
           ) : router.pathname.startsWith("/form-data") ? (
             <FormDataDetails pathname={router.pathname} />
           ) : router.pathname.startsWith("/graphql") ? (
