@@ -32,8 +32,7 @@ export default function DeleteAPI() {
     "message": "User deleted successfully"
 }`;
 
-  const endpoint =
-    "https://snap-test-api-v1.onrender.com/api/user/delete/5f6cbee6-df24-4744-9d6c-e0c2cbee5eaf";
+  const endpoint = "https://snap-test-api-v1.onrender.com/api/user/delete/101";
 
   const jsCode = `
 fetch("${endpoint}", {
@@ -103,7 +102,7 @@ print(response.json())
           //   label="Endpoint URL"
           variant="outlined"
           enabled={false}
-          value="https://snap-test-api-v1.onrender.com/api/user/delete/5f6cbee6-df24-4744-9d6c-e0c2cbee5eaf"
+          value="https://snap-test-api-v1.onrender.com/api/user/delete/101"
           fullWidth // <-- MAKES THE TEXTFIELD 100% WIDTH
         />
         <Button variant="outlined" startIcon={<CopyIcon />}>

@@ -30,76 +30,76 @@ export default function GETAPI() {
 
   const jsonData = `
     [
-        {
-            "userId": "5b139426-1460-4fc4-825c-560575633636",
-            "name": "Michael Thompson",
-            "email": "michael.thompson@company.com",
-            "job": "Senior Software Engineer",
-            "city": "New York"
-        },
-        {
-            "userId": "2737898c-1d31-4936-a20e-5a863b643188",
-            "name": "Emma Johnson",
-            "email": "emma.johnson@company.com",
-            "job": "Product Manager",
-            "city": "San Francisco"
-        },
-        {
-            "userId": "e1e0564e-77b1-4b47-bb8f-0f57958c515b",
-            "name": "Liam Brown",
-            "email": "liam.brown@company.com",
-            "job": "DevOps Engineer",
-            "city": "Toronto"
-        },
-        {
-            "userId": "7ea15681-ccd0-403c-9ca4-becd09215780",
-            "name": "Olivia Martinez",
-            "email": "olivia.martinez@company.com",
-            "job": "UI/UX Designer",
-            "city": "Barcelona"
-        },
-        {
-            "userId": "d07c8e30-1919-48a0-afc1-67d47ecc3f10",
-            "name": "Noah Wilson",
-            "email": "noah.wilson@company.com",
-            "job": "Backend Developer",
-            "city": "London"
-        },
-        {
-            "userId": "e52ac816-3f01-4db8-90c0-e27e7ccee429",
-            "name": "Sophia Miller",
-            "email": "sophia.miller@company.com",
-            "job": "Quality Assurance Engineer",
-            "city": "Berlin"
-        },
-        {
-            "userId": "ae2c375d-18a4-42b9-ae07-f05683e74eb8",
-            "name": "James Anderson",
-            "email": "james.anderson@company.com",
-            "job": "Cloud Architect",
-            "city": "Seattle"
-        },
-        {
-            "userId": "a99dfc04-0ae3-4f65-b741-a261a473902a",
-            "name": "Ava Davis",
-            "email": "ava.davis@company.com",
-            "job": "Data Analyst",
-            "city": "Sydney"
-        },
-        {
-            "userId": "852eb143-e021-4832-a843-ad262ab7d4fd",
-            "name": "Benjamin Harris",
-            "email": "benjamin.harris@company.com",
-            "job": "Cybersecurity Specialist",
-            "city": "Amsterdam"
-        },
-        {
-            "userId": "f6157568-1951-424b-82ae-9f75ea4c86a3",
-            "name": "Mia Robinson",
-            "email": "mia.robinson@company.com",
-            "job": "Business Analyst",
-            "city": "Dublin"
-        }
+      {
+          "userId": 101,
+          "name": "Michael Thompson",
+          "email": "michael.thompson@company.com",
+          "job": "Senior Software Engineer",
+          "city": "New York"
+      },
+      {
+          "userId": 102,
+          "name": "Emma Johnson",
+          "email": "emma.johnson@company.com",
+          "job": "Product Manager",
+          "city": "San Francisco"
+      },
+      {
+          "userId": 103,
+          "name": "Liam Brown",
+          "email": "liam.brown@company.com",
+          "job": "DevOps Engineer",
+          "city": "Toronto"
+      },
+      {
+          "userId": 104,
+          "name": "Olivia Martinez",
+          "email": "olivia.martinez@company.com",
+          "job": "UI/UX Designer",
+          "city": "Barcelona"
+      },
+      {
+          "userId": 105,
+          "name": "Noah Wilson",
+          "email": "noah.wilson@company.com",
+          "job": "Backend Developer",
+          "city": "London"
+      },
+      {
+          "userId": 106,
+          "name": "Sophia Miller",
+          "email": "sophia.miller@company.com",
+          "job": "Quality Assurance Engineer",
+          "city": "Berlin"
+      },
+      {
+          "userId": 107,
+          "name": "James Anderson",
+          "email": "james.anderson@company.com",
+          "job": "Cloud Architect",
+          "city": "Seattle"
+      },
+      {
+          "userId": 108,
+          "name": "Ava Davis",
+          "email": "ava.davis@company.com",
+          "job": "Data Analyst",
+          "city": "Sydney"
+      },
+      {
+          "userId": 109,
+          "name": "Benjamin Harris",
+          "email": "benjamin.harris@company.com",
+          "job": "Cybersecurity Specialist",
+          "city": "Amsterdam"
+      },
+      {
+          "userId": 110,
+          "name": "Mia Robinson",
+          "email": "mia.robinson@company.com",
+          "job": "Business Analyst",
+          "city": "Dublin"
+      }
     ]`;
 
   // --------------------- VARIABLES ---------------------

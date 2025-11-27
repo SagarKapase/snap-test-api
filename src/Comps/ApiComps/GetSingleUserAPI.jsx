@@ -30,16 +30,15 @@ export default function GetSingleUserAPI() {
 
   const jsonData = `
   {
-    "userId": "b0aba459-535d-418a-97ba-dd0a6e956028",
-    "name": "Michael Thompson",
-    "email": "michael.thompson@company.com",
-    "job": "Senior Software Engineer",
+    "userId": 101,
+    "name": "John Doe",
+    "email": "John.Doe@company.com",
+    "job": "Software Engineer",
     "city": "New York"
   }`;
 
   // ========== API URL ==========
-  const apiUrl =
-    "https://snap-test-api-v1.onrender.com/api/user/user/b0aba459-535d-418a-97ba-dd0a6e956028";
+  const apiUrl = "https://snap-test-api-v1.onrender.com/api/user/user/101";
 
   // ========== JavaScript (Browser) ==========
   const jsBrowserSample = `
@@ -104,7 +103,7 @@ print(response.json())
           //   label="Endpoint URL"
           variant="outlined"
           enabled={false}
-          value="https://snap-test-api-v1.onrender.com/api/user/user/b0aba459-535d-418a-97ba-dd0a6e956028"
+          value="https://snap-test-api-v1.onrender.com/api/user/user/101"
           fullWidth // <-- MAKES THE TEXTFIELD 100% WIDTH
         />
         <Button variant="outlined" startIcon={<CopyIcon />}>

@@ -28,13 +28,13 @@ export default function PUTAPI() {
     }, 2000);
   };
   const endpointUrl =
-    "https://snap-test-api-v1.onrender.com/api/user/update/5f6cbee6-df24-4744-9d6c-e0c2cbee5eaf";
+    "https://snap-test-api-v1.onrender.com/api/user/update/101";
 
   const jsonData = `
   {
     "message": "User updated successfully",
     "data": {
-        "userId": "5f6cbee6-df24-4744-9d6c-e0c2cbee5eaf",
+        "userId": 101,
         "name": "John Doe",
         "email": "John.Doe@company.com",
         "job": "Software Engineer",
@@ -124,7 +124,7 @@ print(response.json())`;
           //   label="Endpoint URL"
           variant="outlined"
           enabled={false}
-          value="https://snap-test-api-v1.onrender.com/api/user/update/5f6cbee6-df24-4744-9d6c-e0c2cbee5eaf"
+          value="https://snap-test-api-v1.onrender.com/api/user/update/101"
           fullWidth // <-- MAKES THE TEXTFIELD 100% WIDTH
         />
         <Button variant="outlined" startIcon={<CopyIcon />}>
