@@ -98,7 +98,7 @@ function DashboardLayoutBasic(props) {
           title: "Snap-Test.in",
           logo: (
             <img
-              src=".././././public/snap-test-logo.png"
+              src="snap-test-logo.png"
               alt="Snap-Test Logo"
               style={{ maxHeight: 60, height: 70 }}
             />
