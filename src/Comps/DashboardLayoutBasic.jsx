@@ -92,15 +92,20 @@ function DashboardLayoutBasic(props) {
   const demoWindow = window !== undefined ? window() : undefined;
 
   return (
-    // Remove this provider when copying and pasting into your project.
     <DemoProvider window={demoWindow}>
-      {/* preview-start */}
       <AppProvider
         branding={{
-          title: "Snap-Test.in", // <-- Change name here
+          title: "Snap-Test.in",
+          logo: (
+            <img
+              src=".././././public/snap-test-logo.png"
+              alt="Snap-Test Logo"
+              style={{ maxHeight: 60, height: 70 }}
+            />
+          ),
         }}
         initialState={{
-          navigation: { open: false }, // 👈 Collapse sidebar on first load
+          navigation: { open: false },
         }}
         navigation={[
           {
