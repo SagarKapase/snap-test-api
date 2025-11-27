@@ -39,13 +39,16 @@ export default function MainArea() {
     };
 
     try {
-      const response = await fetch("/api/proxy/call", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+      const response = await fetch(
+        "https://snap-test-api-v1.onrender.com/api/proxy/call",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
 
       const data = await response.json();
       // setResponseBody(JSON.stringify(data, null, 2));
