@@ -4,6 +4,7 @@ import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
+import MainContainerApiBuilder from "./MainContainerApiBuilder";
 
 export default function ApiBuilderDetails() {
   return (
@@ -28,7 +29,9 @@ export default function ApiBuilderDetails() {
       </Box>
       <Divider />
       <Box sx={{ p: 2 }}>
-        <Stack direction="column" spacing={1}></Stack>
+        <Stack direction="column" spacing={1}>
+          <MainContainerApiBuilder />
+        </Stack>
       </Box>
     </Card>
   );

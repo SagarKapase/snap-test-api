@@ -259,6 +259,11 @@ function DashboardLayoutBasic(props) {
             icon: <ArticleIcon />,
           },
           {
+            segment: "documentation",
+            title: "Documentation",
+            icon: <ArticleIcon />,
+          },
+          {
             segment: "playground",
             title: "Playground",
             icon: <DataObjectIcon />,
@@ -277,8 +282,7 @@ function DashboardLayoutBasic(props) {
           slots={{
             toolbarActions: () => (
               <>
-                <BuyMeCoffeeButton />{" "}
-                {/* 👈 This appears BEFORE dark/light icon */}
+                {/* <BuyMeCoffeeButton />{" "} */}
                 <ThemeSwitcher /> {/* ✅ Keep theme toggle */}
               </>
             ),

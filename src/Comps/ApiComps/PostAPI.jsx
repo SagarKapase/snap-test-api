@@ -137,6 +137,10 @@ payload = {
 response = requests.post(url, json=payload)
 print(response.json())
 `;
+
+  const keyValue = `
+Content-Type : application/json
+Accept : application/json`;
   return (
     <Stack direction="column" spacing={1} sx={{ width: "100%" }}>
       <Typography variant="h5" sx={{ fontWeight: 400 }}>
