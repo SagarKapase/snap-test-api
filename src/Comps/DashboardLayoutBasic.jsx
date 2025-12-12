@@ -30,7 +30,8 @@ import DataArrayIcon from "@mui/icons-material/DataArray";
 import FormDataDetails from "./Form-Data/FormDataDetails";
 import ConstructionIcon from "@mui/icons-material/Construction";
 import ApiBuilderDetails from "./ApiBuilder/ApiBuilderDetails";
-
+import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
+import { Button } from "@mui/material";
 const demoTheme = createTheme({
   cssVariables: {
     colorSchemeSelector: "data-toolpad-color-scheme",
@@ -283,6 +284,9 @@ function DashboardLayoutBasic(props) {
             toolbarActions: () => (
               <>
                 {/* <BuyMeCoffeeButton />{" "} */}
+                <Button variant="contained" startIcon={<AutoFixHighIcon />}>
+                  Snotty
+                </Button>
                 <ThemeSwitcher /> {/* ✅ Keep theme toggle */}
               </>
             ),
