@@ -1,164 +1,32 @@
-export default function JsonView() {
-  const getAllUserResp = `[
-    {
-        "userId": 101,
-        "name": "Michael Thompson",
-        "email": "michael.thompson@company.com",
-        "job": "Senior Software Engineer",
-        "city": "New York"
-    },
-    {
-        "userId": 102,
-        "name": "Emma Johnson",
-        "email": "emma.johnson@company.com",
-        "job": "Product Manager",
-        "city": "San Francisco"
-    },
-    {
-        "userId": 103,
-        "name": "Liam Brown",
-        "email": "liam.brown@company.com",
-        "job": "DevOps Engineer",
-        "city": "Toronto"
-    },
-    {
-        "userId": 104,
-        "name": "Olivia Martinez",
-        "email": "olivia.martinez@company.com",
-        "job": "UI/UX Designer",
-        "city": "Barcelona"
-    },
-    {
-        "userId": 105,
-        "name": "Noah Wilson",
-        "email": "noah.wilson@company.com",
-        "job": "Backend Developer",
-        "city": "London"
-    },
-    {
-        "userId": 106,
-        "name": "Sophia Miller",
-        "email": "sophia.miller@company.com",
-        "job": "Quality Assurance Engineer",
-        "city": "Berlin"
-    },
-    {
-        "userId": 107,
-        "name": "James Anderson",
-        "email": "james.anderson@company.com",
-        "job": "Cloud Architect",
-        "city": "Seattle"
-    },
-    {
-        "userId": 108,
-        "name": "Ava Davis",
-        "email": "ava.davis@company.com",
-        "job": "Data Analyst",
-        "city": "Sydney"
-    },
-    {
-        "userId": 109,
-        "name": "Benjamin Harris",
-        "email": "benjamin.harris@company.com",
-        "job": "Cybersecurity Specialist",
-        "city": "Amsterdam"
-    },
-    {
-        "userId": 110,
-        "name": "Mia Robinson",
-        "email": "mia.robinson@company.com",
-        "job": "Business Analyst",
-        "city": "Dublin"
-    }
-]`;
+export default function AuthView() {
+  const authrized_resp = `Hi, I’m the Admin — how can I help you today?`;
 
-  const addUserReq = `{
-    "name": "Tony Thompson",
-    "email": "tony.thompson@company.com",
-    "job": "Senior Software Engineer",
-    "city": "New York"
-}`;
-  const addUserResp = `{
-    "message": "User created successfully",
-    "data": {
-        "userId": 723,
-        "name": "Tony Thompson",
-        "email": "tony.thompson@company.com",
-        "job": "Senior Software Engineer",
-        "city": "New York"
-    }
-}`;
-
-  const updateUserReq = `{
-    "name": "John Doe",
-    "email": "John.Doe@company.com",
-    "job": "Software Engineer",
-    "city": "New York"
-}`;
-  const updateUserResp = `{
-    "message": "User updated successfully",
-    "data": {
-        "userId": 101,
-        "name": "John Doe",
-        "email": "John.Doe@company.com",
-        "job": "Software Engineer",
-        "city": "New York"
-    }
-}`;
-
-  const getSingleUserResp = `{
-    "userId": 101,
-    "name": "Michael Thompson",
-    "email": "michael.thompson@company.com",
-    "job": "Senior Software Engineer",
-    "city": "New York"
-}`;
-
-  const deleteUserResp = `{
-    "message": "User deleted successfully"
+  const tokenReq = `{
+    "username":"Michael",
+    "password":"Thompson"
+}
+`;
+  const token = `{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Ik1pY2hhZWwiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTc2NTUwOTg1NywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MjUxIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo1MjUxIn0.N5lB5C85POWsuJYbCnUMb8rRVMjdPHGx0s0DxFX1pfw",
+    "loginTime": "2025-12-12 03:09:18"
 }`;
   const jsonAPIs = [
     {
-      id: "get-users",
-      method: "GET",
-      title: "Get all users",
-      url: "https://snap-test.in/api/user/getAllUsers",
-      description: "Retrieve all users from the database",
-      response: getAllUserResp,
-    },
-    {
-      id: "add-user",
+      id: "getToken",
       method: "POST",
-      title: "Add a new user",
-      url: "https://snap-test.in/api/user/addUser/",
-      request: addUserReq,
-      response: addUserResp,
-      description: "Create a new user in the system",
+      title: "Get Token",
+      url: "https://snap-test.in/api/user/Login",
+      request: tokenReq,
+      response: token,
+      description: "Get Auth Token",
     },
     {
-      id: "get-single-user",
+      id: "authrize-api",
       method: "GET",
-      title: "Get Single User",
-      url: "https://snap-test.in/api/user/user/101",
-      description: "Get details of a specific user by ID",
-      response: getSingleUserResp,
-    },
-    {
-      id: "update-user",
-      method: "PUT",
-      title: "Update a user",
-      url: "https://snap-test.in/api/user/update/101",
-      request: updateUserReq,
-      response: updateUserResp,
-      description: "Update user information",
-    },
-    {
-      id: "delete-user",
-      method: "DELETE",
-      title: "Delete a user",
-      url: "https://snap-test.in/api/user/delete/101",
-      response: deleteUserResp,
-      description: "Remove a user from the system",
+      title: "Authorize User",
+      url: "https://snap-test.in/api/admin/authorize",
+      description: "Authorize the user",
+      response: authrized_resp,
     },
   ];
 
@@ -179,10 +47,10 @@ export default function JsonView() {
           <div className="flex items-center gap-3 mb-2">
             <div className="flex size-10 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 text-slate-950">
               <span className="material-symbols-outlined text-[24px]">
-                data_object
+                lock
               </span>
             </div>
-            <h1 className="text-3xl font-bold text-white">JSON</h1>
+            <h1 className="text-3xl font-bold text-white">Authorization</h1>
           </div>
           <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-3">
             <p className="text-sm text-red-200">

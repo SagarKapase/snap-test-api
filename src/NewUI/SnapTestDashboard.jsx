@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import JsonView from "./NewComps/JsonView";
+import AuthView from "./NewComps/AuthView";
 
 const SnapTestDashboard = () => {
   const [method, setMethod] = useState("GET");
@@ -15,7 +16,7 @@ const SnapTestDashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [expandedCode, setExpandedCode] = useState(null);
   const [expandedMenu, setExpandedMenu] = useState(null);
-  const [currentView, setCurrentView] = useState("api-builder");
+  const [currentView, setCurrentView] = useState("json-tools");
 
   const sampleResponse = [
     {
@@ -69,8 +70,8 @@ const SnapTestDashboard = () => {
     setExpandedMenu(expandedMenu === menuName ? null : menuName);
   };
 
-  const selectAPI = (api) => {
-    setCurrentView("json-tools");
+  const selectAPI = (api, view) => {
+    setCurrentView(view);
     setMethod(api.method);
     setUrl(api.url);
     setExpandedMenu(null);
@@ -150,6 +151,19 @@ const SnapTestDashboard = () => {
       description: "Remove a user from the system",
     },
   ];
+
+  const authApis = [
+    {
+      id: "get-token",
+      method: "POST",
+      title: "Get Token",
+    },
+    {
+      id: "authorize-user",
+      method: "GET",
+      title: "Authorize User",
+    },
+  ];
   return (
     <div className="bg-slate-950 text-slate-50 h-screen overflow-hidden flex flex-col font-sans">
       <link
@@ -222,22 +236,22 @@ const SnapTestDashboard = () => {
         >
           <div className="px-4 py-6 space-y-1">
             <p className="px-4 text-xs font-bold text-slate-400/50 uppercase tracking-wider mb-2">
-              Core Tools
+              Dummay APIs
             </p>
 
             <div>
               <NavItem
                 icon="data_object"
-                label="JSON Tools"
+                label="JSON"
                 chevron
-                onClick={() => toggleMenu("JSON Tools")}
+                onClick={() => toggleMenu("JSON")}
               />
-              {expandedMenu === "JSON Tools" && (
+              {expandedMenu === "JSON" && (
                 <div className="ml-4 mt-1 space-y-1 border-l-2 border-slate-800 pl-2">
                   {jsonAPIs.map((api) => (
                     <button
                       key={api.id}
-                      onClick={() => selectAPI(api)}
+                      onClick={() => selectAPI(api, "json-tools")}
                       className="w-full flex items-center gap-2 px-3 py-2 text-xs font-medium text-slate-400 hover:text-cyan-400 hover:bg-white/5 rounded transition-colors text-left group"
                     >
                       <span
@@ -252,11 +266,33 @@ const SnapTestDashboard = () => {
               )}
             </div>
 
-            <NavItem
-              icon="lock"
-              label="Auth Helper"
-              onClick={() => setCurrentView("api-builder")}
-            />
+            <div>
+              <NavItem
+                icon="lock"
+                label="Auth"
+                chevron
+                onClick={() => toggleMenu("Auth")}
+                // onClick={() => setCurrentView("auth-view")}
+              />
+              {expandedMenu === "Auth" && (
+                <div className="ml-4 mt-1 space-y-1 border-l-2 border-slate-800 pl-2">
+                  {authApis.map((api) => (
+                    <button
+                      key={api.id}
+                      onClick={() => selectAPI(api, "auth-view")}
+                      className="w-full flex items-center gap-2 px-3 py-2 text-xs font-medium text-slate-400 hover:text-cyan-400 hover:bg-white/5 rounded transition-colors text-left group"
+                    >
+                      <span
+                        className={`px-2 py-0.5 rounded text-[10px] font-bold ${getMethodColor(api.method)}`}
+                      >
+                        {api.method}
+                      </span>
+                      <span className="truncate">{api.title}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
             <NavItem
               icon="code"
               label="XML Formatter"
@@ -328,6 +364,8 @@ const SnapTestDashboard = () => {
         <main className="flex-1 flex flex-col bg-slate-950 overflow-hidden relative">
           {currentView === "json-tools" ? (
             <JSONToolsView />
+          ) : currentView === "auth-view" ? (
+            <AuthView />
           ) : (
             <div className="flex-1 overflow-y-auto p-6 z-10">
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
